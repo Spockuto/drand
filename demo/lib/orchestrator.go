@@ -169,23 +169,23 @@ func (e *Orchestrator) RunDKG(timeout string) {
 }
 
 func (e *Orchestrator) checkDKGNodes(nodes []node.Node, groupPath string) *key.Group {
-	for {
-		fmt.Println("[+] Checking if chain info is present on all nodes...")
-		var allFound = true
-		for _, node := range nodes {
-			if !node.ChainInfo(groupPath) {
-				allFound = false
-				break
-			}
-		}
-		if !allFound {
-			fmt.Println("[+] Chain info not present on all nodes. Sleeping 3s...")
-			time.Sleep(3 * time.Second)
-		} else {
-			fmt.Println("[+] Chain info are present on all nodes. DKG finished.")
-			break
-		}
-	}
+	// for {
+	// 	fmt.Println("[+] Checking if chain info is present on all nodes...")
+	// 	var allFound = true
+	// 	for _, node := range nodes {
+	// 		if !node.ChainInfo(groupPath) {
+	// 			allFound = false
+	// 			break
+	// 		}
+	// 	}
+	// 	if !allFound {
+	// 		fmt.Println("[+] Chain info not present on all nodes. Sleeping 3s...")
+	// 		time.Sleep(3 * time.Second)
+	// 	} else {
+	// 		fmt.Println("[+] Chain info are present on all nodes. DKG finished.")
+	// 		break
+	// 	}
+	// }
 
 	var g *key.Group
 	var lastNode string
